@@ -37,7 +37,7 @@ const AddProduct = () => {
                 Swal.fire({
                   position: "top-center",
                   icon: "success",
-                  title: "Property information add successfully",
+                  title: "Product add successfully",
                   showConfirmButton: false,
                   timer: 1500
                 });
@@ -98,7 +98,7 @@ const AddProduct = () => {
                         <div className="mb-2 block">
                             <Label value="Details" />
                         </div>
-                        <TextInput type="text" name="details" readOnly shadow />
+                        <TextInput type="text" name="details"  shadow />
                     </div>
                 
               <div className='flex justify-center'>
