@@ -52,6 +52,7 @@ const Login = () => {
     const handleGoogle = () =>{
       signInWithGoogle()
       .then(res=>{
+        console.log(res.data)
         Swal.fire({
           title: "Login Successfully",
           showClass: {
