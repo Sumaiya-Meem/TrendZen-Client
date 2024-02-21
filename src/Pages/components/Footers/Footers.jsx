@@ -29,7 +29,6 @@ const Footers = () => {
                 <Footer.Title title="About" />
                 <Footer.LinkGroup col>
                   <Footer.Link href="#">About Us</Footer.Link>
-                  <Footer.Link href="#">Delivery Information</Footer.Link>
                   <Footer.Link href="#">Privacy Policy</Footer.Link>
                   <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
                   <Footer.Link href="#">Contact Us</Footer.Link>
