@@ -1,8 +1,18 @@
-import { Avatar, Dropdown, Navbar } from 'flowbite-react';
-import { NavLink } from 'react-router-dom';
+import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
+import { Link, NavLink } from 'react-router-dom';
 import { FaCartPlus } from "react-icons/fa";
 import { FaOpencart } from "react-icons/fa6";
+import { AuthContext } from '../../../Context/AuthProvider';
+import { useContext } from 'react';
+import { IoIosLogOut } from "react-icons/io";
 const Header = () => {
+  const {user,logOut}=useContext(AuthContext)
+  const handleLogout =()=>{
+    console.log("logout")
+    logOut()
+    .then(()=>{})
+    .catch(err=>console.log(err))
+}
     return (
         <div>
         
@@ -15,20 +25,45 @@ const Header = () => {
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">TrendZen</span>
       </Navbar.Brand>
       <div className="flex md:order-2">
-        <Dropdown
-          arrowIcon={false}
-          inline
-          label={
-            <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
-          }
-        >
-          <Dropdown.Header>
-            <span className="block text-sm">Bonnie Green</span>
-            <span className="block truncate text-sm font-medium">name@flowbite.com</span>
-          </Dropdown.Header>
-          <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
-        </Dropdown>
+                    {
+                        user ? <>
+                        <Dropdown
+                        arrowIcon={false}
+                        inline
+                        label={
+                            <Avatar alt="User settings" img={user?.photoURL} rounded />
+                        }
+                    >
+                        <Dropdown.Header>
+                            <span className="block text-sm">{ user?.displayName}</span>
+                           
+                        </Dropdown.Header>
+                        <Dropdown.Item>
+                        <span className="block truncate text-sm font-medium">{user?.email}</span>
+                        </Dropdown.Item>
+                        <Dropdown.Divider />
+                        <Dropdown.Item>
+                        <Button color="" className=''  onClick={handleLogout}>
+                        <span className='mr-2 text-xl'><IoIosLogOut></IoIosLogOut></span> LogOut
+                    </Button>
+                        </Dropdown.Item>
+                    </Dropdown> 
+                        </>
+                        :
+                        <>
+                       <div className='flex items-center'>
+                       <Link to="/register">
+                    <Button color="" className='mr-2' pill >
+                        SignUp
+                    </Button></Link>
+                    <Link to="/login">
+                    <Button color="" className='p-2 font-semibold' pill>
+                        Login
+                    </Button>
+                    </Link>
+                       </div>
+                        </>
+                    }
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>

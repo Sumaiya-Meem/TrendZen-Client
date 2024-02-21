@@ -1,21 +1,20 @@
 
-import {  Card, Label, TextInput } from 'flowbite-react';
 import { useContext } from 'react';
-
-
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Context/AuthProvider';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import {  Card, Label, TextInput } from 'flowbite-react';
 
 
 const Register = () => {
 
-//   const axiosSecure = useAxiosSecure()
-  const {register,handleSubmit,reset,formState: { errors }} = useForm()
-
-  const {createUser,updateUserProfile,logOut } =useContext(AuthContext);
-  const navigate=useNavigate()
+    const axiosSecure = useAxiosSecure()
+    const {register,handleSubmit,reset,formState: { errors }} = useForm()
+  
+    const {createUser,updateUserProfile,logOut } =useContext(AuthContext);
+    const navigate=useNavigate()
 
   const onSubmit = (data) => {
     // console.log(data)
@@ -27,28 +26,28 @@ const Register = () => {
       .then(()=>{
         console.log("user profile updated successfully")
         // create user in database
-        // const userInfo={
-        //   name:data.name,
-        //   email:data.email
-        // }
-        // axiosSecure.post('/users',userInfo)
-        // .then(res=>{
-        //   if(res.data.insertedId){
-        //     console.log("user add in database")
-        //     reset();
-        //     Swal.fire({
-        //       position: "top-center",
-        //       icon: "success",
-        //       title: "Register Successfully",
-        //       showConfirmButton: false,
-        //       timer: 1500
-        //     });
-        //     logOut().then(() => {
-        //       console.log("User logged out")
-        //       navigate("/login");
-        //     });
-        //   }
-        // })
+        const userInfo={
+          name:data.name,
+          email:data.email
+        }
+        axiosSecure.post('/users',userInfo)
+        .then(res=>{
+          if(res.data.insertedId){
+            console.log("user add in database")
+            reset();
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Register Successfully",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            logOut().then(() => {
+              console.log("User logged out")
+              navigate("/login");
+            });
+          }
+        })
         
       })
       .catch(err=>console.log(err))
@@ -56,6 +55,7 @@ const Register = () => {
     })
     
   }
+    
 
   return (
         <div className='flex '>
