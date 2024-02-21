@@ -1,13 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "./useAxiosSecure";
-
-
-
-            
+import useAxiosSecure from "./useAxiosSecure";           
 
 const useSummerProduct = () => {
     const axiosSecure = useAxiosSecure();
-    const { isLoading, refetch, data:allProperty =[]} = useQuery({
+    const { isLoading, refetch, data:allProduct =[]} = useQuery({
         queryKey: ['propertyData'],
         queryFn: async () =>
         {
@@ -15,7 +11,7 @@ const useSummerProduct = () => {
             return res.data;
         }
       })
-      return [allProperty,isLoading,refetch]
+      return [allProduct,isLoading,refetch]
 };
 
 
