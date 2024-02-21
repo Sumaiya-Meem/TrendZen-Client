@@ -63,6 +63,17 @@ const Header = () => {
               <FaCartPlus  className='text-xl text-[#088178]'/>
             </NavLink>
           </Navbar.Link>
+          <Navbar.Link>
+            <NavLink
+              to="/register"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-white md:text-[#088179e2]" : ""
+              }
+            >
+              Register
+            </NavLink>
+          </Navbar.Link>
+          
       </Navbar.Collapse>
     </Navbar>
 

@@ -58,12 +58,12 @@ const Register = () => {
   }
 
   return (
-        <div className='flex gap-4'>
+        <div className='flex '>
             
-    <div className='flex-1'>
-    <Card className="max-w-lg">
-        <h1 className='mt-10 text-center text-3xl text-purple-500 font-semibold'>Register</h1>
-      <form className="flex flex-col gap-4 mt-4 text-left" onSubmit={handleSubmit(onSubmit)}>
+
+    <Card className="w-full">
+        <h1 className=' text-center text-3xl text-[#088178] font-semibold'>Register Now</h1>
+      <form className="flex flex-col gap-4 mt-2 text-left" onSubmit={handleSubmit(onSubmit)}>
       <div>
           <div className="mb-2 block">
             <Label htmlFor="email1" value="Your Name" />
@@ -110,7 +110,7 @@ const Register = () => {
         )}
 
         </div>
-        <input type="submit" value="Register"  className='btn bg-purple-500 w-[30%] mx-auto p-2 rounded-lg text-white'/>
+        <input type="submit" value="Register"  className='btn bg-[#088178] w-[30%] mx-auto p-2 rounded-lg text-white'/>
 
         <p>Have an account? <Link to="/login">
          <span className='text-blue-500'>Login </span>here
@@ -118,11 +118,8 @@ const Register = () => {
       </form>
     </Card>
     </div>
-    <div className='hidden lg:block w-[40%] flex-1 mt-12'>
-        <Lottie animationData={regiAnimation}></Lottie>
-    </div>
+   
 
-        </div>
     );
 };
 
