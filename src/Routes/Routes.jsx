@@ -29,12 +29,12 @@ const router = createBrowserRouter([
         {
           path: "/detailProduct/:id",
           element: <PrivateRoute><DetailsProduct></DetailsProduct></PrivateRoute>,
-          loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+          loader: ({params})=>fetch(`https://trend-zen-server-side.vercel.app/products/${params.id}`)
         },
         {
           path:"/updateProduct/:id",
           element:<PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+          loader:({params})=>fetch(`https://trend-zen-server-side.vercel.app/products/${params.id}`)
 
         },
         {

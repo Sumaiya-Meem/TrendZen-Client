@@ -1,5 +1,5 @@
 # TrendZen 
-- [Live Link](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) 
+- [Live Link](https://trendzen-2bd14.web.app/) 
 
 # Feature
 - Authentication system
