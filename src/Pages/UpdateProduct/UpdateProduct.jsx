@@ -1,17 +1,16 @@
 
-import { Button, Label, TextInput, Textarea } from "flowbite-react";
-import { useState } from "react";
+import { Button, Label, TextInput} from "flowbite-react";
+
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useLoaderData, useNavigate } from "react-router-dom";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
+
 
 const UpdateProduct = () => {
     
     const data = useLoaderData()
     console.log(data);
     const navigate =useNavigate();
-    const axiosSecure=useAxiosSecure()
 
 
     const handleUpdateProduct = e => {

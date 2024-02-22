@@ -88,7 +88,7 @@ const Header = () => {
           </Navbar.Link>
           <Navbar.Link>
             <NavLink
-              to="/mycart"
+              to="/cart"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-white md:text-[#088179e2]" : ""
               }
