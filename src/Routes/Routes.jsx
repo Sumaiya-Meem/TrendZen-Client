@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import AddProduct from "../Pages/AddProduct/AddProduct";
 import PrivateRoute from "./PrivateRoute";
 import DetailsProduct from "../Pages/AllProduct/DetailsProduct";
+import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,12 @@ const router = createBrowserRouter([
           path: "/detailProduct/:id",
           element: <PrivateRoute><DetailsProduct></DetailsProduct></PrivateRoute>,
           loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+        },
+        {
+          path:"/updateProduct/:id",
+          element:<PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
+          loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+
         },
         {
           path: "/register",

@@ -1,6 +1,6 @@
 import { Button, Card } from "flowbite-react";
-import { FaStairs } from "react-icons/fa6";
-import { useLoaderData } from "react-router-dom";
+
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 import { FaStar } from "react-icons/fa";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
@@ -9,10 +9,16 @@ import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 const DetailsProduct = () => {
     const product = useLoaderData();
-    const { name,price,image,type,details,brandName} = product;
+    const {_id, name,price,image,type,details,brandName,rating} = product;
     const axiosSecure=useAxiosSecure();
     const {user}=useContext(AuthContext)
+    const navigate =useNavigate();
 
+    const renderStars = () => {
+        return Array.from({ length: rating }).map((_, index) => (
+          <FaStar key={index} className="text-orange-300" />
+        ));
+      };
 
     const handleCart=()=>{
         const cartData = {
@@ -34,11 +40,12 @@ const DetailsProduct = () => {
                   timer: 1500
                 });
             }
+            navigate("/");
         })
     }
     return (
         <div>
-              <Card className="w-[600px] h-[400px] mx-auto" horizontal>
+              <Card className="w-[600px] h-[430px] mx-auto" horizontal>
 
                 <div className='flex gap-6'>
                     <div className='flex-1'>
@@ -49,7 +56,7 @@ const DetailsProduct = () => {
                         <h1 className="font-semibold text-2xl">{name}</h1>
                         <h5>{brandName}</h5>
                         <p className="font-semibold text-xl">${price}.00</p>
-                        <p >< FaStar className="text-orange-300" /></p>
+                        <p className="flex gap-2">{renderStars()}</p>
                         <div className="flex flex-wrap gap-2 mt-5">
                             <Button onClick={handleCart}>
                                
@@ -61,7 +68,9 @@ const DetailsProduct = () => {
                         <p>{details}</p>
                     </div>
                 </div>
-                <Button>Update</Button>
+                <Link to={`/updateProduct/${_id}`}>
+                <Button className="w-full">Update</Button>
+            </Link>
             </Card>
         </div>
     );
