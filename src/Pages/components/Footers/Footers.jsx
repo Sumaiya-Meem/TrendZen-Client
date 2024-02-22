@@ -29,6 +29,7 @@ const Footers = () => {
                 <Footer.Title title="About" />
                 <Footer.LinkGroup col>
                   <Footer.Link href="#">About Us</Footer.Link>
+                  <Footer.Link href="#">Delivery Information</Footer.Link>
                   <Footer.Link href="#">Privacy Policy</Footer.Link>
                   <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
                   <Footer.Link href="#">Contact Us</Footer.Link>
@@ -53,9 +54,9 @@ const Footers = () => {
         <FaGooglePlay className="mr-2 h-5 w-5 text-[#088178]" />
        Google Play
       </Button>
-                  <Button color="light" className="mt-3 text-[25px]">
+                  <Button color="light" className="mt-3">
         <IoLogoApple className="mr-2 h-5 w-5 text-[#1a1a1a]" />
-       App Store
+       App tore
       </Button>
                   </Footer.Link>
                 </Footer.LinkGroup>

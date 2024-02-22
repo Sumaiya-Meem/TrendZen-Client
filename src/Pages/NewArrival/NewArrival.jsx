@@ -8,7 +8,7 @@ const NewArrival = () => {
         <div className="mt-5">
             <h1 className="text-[#088178] text-3xl text-center font-semibold">Latest Summer Collection</h1>
             <p className="text-[#201f1f38] text-center mb-6">Summer Collection Modern Design</p>
-            <div className='grid grid-cols-3 gap-2 p-2'>
+            <div className='grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-2 p-2'>
                 {
                     allProduct.map(data =>
 
@@ -27,8 +27,8 @@ const NewArrival = () => {
                             </p>
                             
                             <div className="flex justify-between">
-                                <p className="text-[#088178]">${data.price}</p>
-                                <FaCartShopping />
+                                <p className="text-[#088178] font-semibold">${data.price}</p>
+                                <div className="bg-[#44cdc4] p-2 rounded-[50%] text-white text-xl"><FaCartShopping /></div>
                             </div>
                             
                                
