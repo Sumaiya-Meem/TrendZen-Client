@@ -1,11 +1,13 @@
-import NewArrival from "../../NewArrival/NewArrival";
+// import NewArrival from "../../NewArrival/NewArrival";
 import Banner from "../Banner/Banner";
+import AllProduct from "../../AllProduct/AllProduct"
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <NewArrival></NewArrival>
+            {/* <NewArrival></NewArrival> */}
+            <AllProduct></AllProduct>
         </div>
     );
 };

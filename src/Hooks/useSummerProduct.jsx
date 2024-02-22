@@ -3,15 +3,15 @@ import useAxiosSecure from "./useAxiosSecure";
 
 const useSummerProduct = () => {
     const axiosSecure = useAxiosSecure();
-    const { isLoading, refetch, data:allProducts =[]} = useQuery({
+    const { isLoading, refetch, data:allProduct =[]} = useQuery({
         queryKey: ['propertyData'],
         queryFn: async () =>
         {
-            const res = await axiosSecure.get('/products')
+            const res = await axiosSecure.get('/summer')
             return res.data;
         }
       })
-      return [allProducts,isLoading,refetch]
+      return [allProduct,isLoading,refetch]
 };
 
 
